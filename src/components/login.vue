@@ -102,6 +102,8 @@
           // )
           this.axios.post("/user/login",str).then(
             (res)=>{
+              console.log(res);
+              return;
               if(res.data.code==0){
                 alert(res.data.msg);
                 $("#uname").val("");
