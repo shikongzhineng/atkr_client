@@ -24,10 +24,6 @@ router.afterEach((to, from, next) => {
 import "./axios";
 
 Vue.config.productionTip = false
-//让axios的请求携带验证信息到服务端
-//axios.defaults.withCredentials=true;
-//Vue.prototype.axios=axios;
-//xxx.vue中： this.axios.get(...)
 
 new Vue({
   router,

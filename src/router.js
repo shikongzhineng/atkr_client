@@ -2,19 +2,18 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Index from './components/index'
-
 import flightList from './components/flightList'
-import traveldigest from './components/common/travelDigest.vue'
-import breadcrumb from './components/common/breadCrumb.vue'
-import listitem from './components/common/listItem.vue'
 import searchflight from './components/searchFlight.vue'
 import traveldetail from './components/travelDetail.vue'
 import reserve from './components/reserve.vue'
 import pInformation from './components/pInformation.vue'
-
-
 import Login from './components/login'
 import registe from './components/registe.vue'
+
+//  测试使用(只用做子组件)
+// import traveldigest from './components/common/travelDigest.vue'
+// import breadcrumb from './components/common/breadCrumb.vue'
+// import listitem from './components/common/listItem.vue'
 
 
 Vue.use(Router)
