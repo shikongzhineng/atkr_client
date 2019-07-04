@@ -1,0 +1,52 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .right,
+  .login {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    align-items: center;
+  }
+  .right img,
+  .login img {
+    height: 20px;
+  }
+  .border {
+    width: 2px;
+    height: 40%;
+    border-left: 2px solid #ccc;
+  }
+  .right a,
+  .login a {
+    font-size: 1.1rem;
+    color: #051035;
+    cursor: pointer;
+    padding-left: 0.5rem;
+  }
+  .right a:hover,
+  .login a:hover {
+    color: #ed0000;
+    text-decoration: #ed0000;
+  }
+  .login {
+    width: 20%;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+    margin-bottom: 3px;
+  }
+  .nav .nav-item {
+    padding: 1.5rem 2.5rem;
+    border-bottom: 2px solid #eee;
+    color: #051035;
+    background-color: #eee;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  .nav .nav-item:hover {
+    border-bottom-color:#051035;
+  }

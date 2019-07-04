@@ -1,0 +1,38 @@
+.hottitle {
+    margin: 3rem auto;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  .hot img {
+    width: 100%;
+  }
+  .hot .el-col{
+    text-align:left;
+  }
+  .hot .el-col>div>span{
+    display:block;
+    padding-left:10px;
+  }
+  .hot .el-col>div>span.adr{
+    font-size:1rem;
+    font-weight:700;
+    margin:10px 0;
+  }
+  .hot .el-col>div>span:last-child{
+    font-size:1.3rem;
+    font-weight:700;
+    color:#f00;
+    padding-left:6px;
+    margin-bottom:40px;
+  }
+  .hot .el-col .el-card {
+    border:2px solid #eeeeee;
+  }
+  .hot .el-col .el-card:hover{
+    border-color:#051039;
+    cursor: pointer;
+  }
+  .hot {
+    margin: 50px 15px;
+  }

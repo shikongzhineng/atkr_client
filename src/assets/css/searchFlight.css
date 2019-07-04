@@ -1,0 +1,284 @@
+.title {
+    width: 100%;
+    height: 10rem;
+    background-color: #294a92;
+    padding: 2rem;
+    font-size: 2rem;
+    color: #fff;
+  }
+  .subtitle {
+    margin: 20px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #0062e6;
+  }
+  .small {
+    color: #051039;
+    font-size: 0.95rem;
+    font-weight: bolder;
+  }
+  /*单程 or 往返*/
+  .address {
+    width: 45%;
+    position: relative;
+    border: 2px solid #ccc;
+    text-align: center;
+    color: #555;
+    font-size: 1rem;
+  }
+  .address:hover {
+    border: 2px solid #051039;
+  }
+  .address > .row > div {
+    padding: 5px 0;
+    cursor: pointer;
+    letter-spacing: 0.8rem;
+  }
+  .address > .bgblock {
+    width: 50%;
+    height: 31px;
+    opacity: 0.9;
+    border: 1px solid #fff;
+    position: absolute;
+    background-color: #051039;
+    left: 0px;
+    transition: all 0.2s linear;
+  }
+  /*起始地点输入框*/
+  .adrInput {
+    margin: 30px 0;
+  }
+  .adrInput input {
+    width: 100%;
+    border: 2px solid #ccc;
+    padding: 8px 50px;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    cursor: pointer;
+  }
+  .adrInput input:hover {
+    border: 2px solid #051039;
+  }
+  /* .adrInput>.el-col-3>div{
+    margin:6px 10px;
+  }
+  .adrInput>.el-col-9{
+    position:relative;
+  } */
+  .adrInput .delete,
+  .adrInput .feiji {
+    height: 40px;
+    width: 44px;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+  }
+  .adrInput .delete {
+    right: 0;
+  }
+  .adrInput .feiji {
+    left: 0;
+  }
+  .adrInput .feiji > div {
+    position: absolute;
+    top: 0;
+    left: 2.7rem;
+    width: 2px;
+    height: 25px;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+  }
+  .adrInput .delete > img,
+  .adrInput .feiji > img {
+    margin: 5px;
+  }
+  .adrInput .delete:hover {
+    border: 2px solid #051039;
+  }
+  .adrInput .search {
+    cursor: pointer;
+  }
+  /* .adrInput>.el-col-3{
+    position: relative;
+  }
+  .adrInput>.el-col-3>.box{
+    width:44px;
+    height:44px;
+    margin:0;
+    position:absolute;
+    top:0;left:5px;
+    cursor: pointer;
+  }
+  .adrInput>.el-col-3>.box:hover{
+    border:2px solid #051039;
+  } */
+  /*搜索城市 下拉卡卡片*/
+  .adrInput .adrCard {
+    background-color: #f2f2f2;
+    padding: 20px;
+    color: #051039;
+    box-sizing: border-box;
+  }
+  .adrInput #c1,
+  .adrInput #c2 {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+    z-index: 999;
+    transition: height 0.2s linear;
+  }
+  
+  .adrInput .adrCard > span {
+    font-size: 0.8rem;
+  }
+  .adrInput .adrCard > ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1rem;
+  }
+  .adrInput .adrCard > ul > li {
+    background-color: #fff;
+    padding: 10px 15px;
+    margin-right: 20px;
+    margin-top: 3px;
+    cursor: pointer;
+  }
+  .line {
+    border: 1px solid #ccc;
+  }
+  /*日期*/
+  .date {
+    margin-bottom: 30px;
+  }
+  .date > div {
+    position: relative;
+  }
+  .date > div > img {
+    display: block;
+    position: absolute;
+    top: 0.3rem;
+    left: 5.5rem;
+    cursor: pointer;
+  }
+  .date > div > .line {
+    position: absolute;
+    top: 0;
+    left: 7.9rem;
+    width: 2px;
+    height: 26px;
+    border: 1px solid #ccc;
+    margin: 8px 0;
+  }
+  .date  .come {
+    display: none;
+  }
+  /*乘客人数选择*/
+  .passNum {
+    width: 100%;
+    border: 2px solid #ccc;
+    text-align: center;
+    padding: 8px 0px;
+    cursor: pointer;
+  }
+  .passNum:hover {
+    border: 2px solid #051039;
+  }
+  .passNum > .num {
+    width: 11.111111%;
+    position: relative;
+    color: #555;
+    text-align: center;
+    cursor: pointer;
+  }
+  .passNum > .num:first-child {
+    color: #fff;
+  }
+  .passNum > .num:not(:last-child) {
+    border-right: 2px solid #ccc;
+  }
+  .passengerNum {
+    position: relative;
+  }
+  .passengerNum > .bgblock {
+    width: 11%;
+    position: absolute;
+    height: 35px;
+    opacity: 0.9;
+    border: 1px solid #fff;
+    background-color: #051039;
+    left: 2px;
+    top: 3px;
+    transition: all 0.2s linear;
+  }
+  /*第几位乘客*/
+  .passage {
+    margin-top: 40px;
+  }
+  .question {
+    position: relative;
+    display: flex;
+  }
+  .question > #questionimg {
+    cursor: pointer;
+  }
+  .everypass {
+    margin: 30px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .everypass .tipscard {
+    display: none;
+  }
+  .everypass .tipscard:hover {
+    display:block;
+  }
+  .everypass .tipscard > div > p {
+    padding-left: 20px;
+  }  
+  .everypass .tipscard > div {
+    width: 350px;
+    margin-left: 40px;
+    padding: 15px;
+    background-color: #264483;
+    position: absolute;
+    top: -122px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
+  }
+  .everypass .tipscard > div > .arrow {
+    position: absolute;
+    top: 40%;
+    left: -29px;
+  }
+  /*底部按钮：退出   搜索航班*/
+  .btns {
+    margin: 50px 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btns a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 24px;
+  }
+  .btns a:hover {
+    text-decoration: none;
+  }
+  .btns > .btn1 > a {
+    background-color: #051039;
+  }
+  .btns > .btn1 > a:hover {
+    background-color: #264483;
+  }
+  .btns > .btn2 > a:hover {
+    background-color: #cc0404;
+  }
+  .btns > .btn2 > a {
+    background-color: #ed0000;
+  }
