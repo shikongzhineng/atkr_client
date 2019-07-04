@@ -12,7 +12,7 @@
         </div>
       </div>
       <el-row class="adrInput">
-        <el-col :span="9" style="position:relative;">
+        <el-col :span="9" class="city-list">
           <div>
             <input class="start" type="text" placeholder="出发" v-model="flInfo.originplace" />
             <div class="feiji">
@@ -23,26 +23,26 @@
               <img src="img/searchFlight/delete.png" alt />
             </div>
           </div>
-          <div id="c1">
-            <div class="adrCard" id="card1">
+          <div>
+            <div class="adrCard" :class="adrState===1?adrCard:''">
               <span>热门城市</span>
               <ul class="hotcity">
-                <li v-for="(item,i) of city[0]" :key="i" :id="item">{{item}}</li>
+                <li v-for="(item,i) of city[0]" :key="i" @click="selCity(item,'originplace')">{{item}}</li>
               </ul>
               <span>通航城市</span>
               <ul class="commoncity">
-                <li v-for="(item,i) of city[1]" :key="i" :id="item">{{item}}</li>
+                <li v-for="(item,i) of city[1]" :key="i" @click="selCity(item,'originplace')">{{item}}</li>
               </ul>
             </div>
           </div>
         </el-col>
-        <el-col :span="3">
+        <el-col :span="3" class="show-list">
           <div>
             <img class="search" src="img/searchFlight/sousuo.png" alt />
           </div>
-          <div tabindex="0" class="box" ></div>
+          <div tabindex="0" class="box" @focus="showCityList(1)" @blur="hiddenCityList"></div>
         </el-col>
-        <el-col :span="9" style="position:relative;">
+        <el-col :span="9" class="city-list">
           <div>
             <input v-model="flInfo.destination" class="end" type="text" placeholder="到达" />
             <div class="feiji">
@@ -53,24 +53,24 @@
               <img src="img/searchFlight/delete.png" alt />
             </div>
           </div>
-          <div id="c2">
-            <div class="adrCard" id="card2">
+          <div>
+            <div class="adrCard" :class="adrState===2?adrCard:''">
               <span>热门城市</span>
               <ul class="hotcity">
-                <li v-for="(item,i) of city[0]" :key="i" :id="item">{{item}}</li>
+                <li v-for="(item,i) of city[0]" :key="i" :id="item" @click="selCity(item,'destination')">{{item}}</li>
               </ul>
               <span>通航城市</span>
               <ul class="commoncity">
-                <li v-for="(item,i) of city[1]" :key="i" :id="item">{{item}}</li>
+                <li v-for="(item,i) of city[1]" :key="i" :id="item" @click="selCity(item,'destination')">{{item}}</li>
               </ul>
             </div>
           </div>
         </el-col>
-        <el-col :span="3">
+        <el-col :span="3" class="show-list">
           <div>
             <img class="search" src="img/searchFlight/sousuo.png" alt />
           </div>
-          <div tabindex="0" class="box"></div>
+          <div tabindex="0" class="box" @focus="showCityList(2)" @blur="hiddenCityList"></div>
         </el-col>
       </el-row>
       <div class="line"></div>
@@ -123,11 +123,11 @@
         </div>
         <div class="passage">
           <div class="everypass" v-for="(val,index) of flInfo.passnum" :key="index">
-            <span class="small">第{{number[val-1]}}名乘客</span>
-            <el-select v-model="passvalue[val-1]">
+            <span class="small">第{{number[index]}}名乘客</span>
+            <el-select v-model="passvalue[index]">
               <el-option v-for="item of options" :key="item" :label="item" :value="item"></el-option>
             </el-select>
-            <div class="question" v-if="i==1">
+            <div class="question" v-if="index===0">
               <div class="questionimg">
                 <img src="img/searchFlight/questionfill.png" alt />
               </div>

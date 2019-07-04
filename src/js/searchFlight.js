@@ -28,14 +28,17 @@ export default {
                 "少年(12-17岁)",
                 "儿童(2-11岁)"
             ],
-            passvalue:["成人(18-64岁)"],
+            passvalue: [],
             selectedStyle: {
                 color: '#fff'
             },
             psgBgStyle: {
                 left: 0
             },
-            psgBgWidth:0
+            adrCard:{
+                active:false
+            },
+            adrState:0
         };
     },
     methods: {
@@ -79,8 +82,18 @@ export default {
                 params: this.flInfo
             });
         },
+        selCity(addr, key) {
+            this.flInfo[key] = addr;
+        },
         delAddr(key) {
             this.flInfo[key] = '';
+        },
+        showCityList(n) {
+            this.adrState=n
+            this.adrCard.active=true;
+        },
+        hiddenCityList(){
+            this.adrCard.active=false;
         },
         //获取当前日期
         getNow() {
@@ -93,17 +106,22 @@ export default {
             return date;
         },
         /*选择乘客人数 */
-        chooseNum(e,num) {
-            console.dir(e.target.offsetWidth,num);
+        chooseNum(e, num) {
+            // 设置乘客总数
             this.flInfo.passnum = num;
-            this.psgBgWidth=e.target.offsetWidth;
-            var left=this.psgBgWidth*(num-1)+"px";
-            console.log(left);
-            this.psgBgStyle = {left};
+            // 设置背景框的位置
+            var left = e.target.offsetWidth * (num - 1) + "px";
+            this.psgBgStyle = { left };
+            // 
         },
         /*选择单程 or 往返 */
         bgChange(n) {
             this.flInfo.ticket = n;
+        }
+    },
+    created() {
+        for (let i = 0; i < 9; i++) {
+            this.passvalue[i] = "成人(18-64岁)";
         }
     },
     mounted() {
@@ -115,75 +133,5 @@ export default {
         //给去程和回程日期设置一个初始值：即当前日期
         this.flInfo.startdate = this.getNow();
         this.flInfo.backdate = this.getNow();
-
-
-        //需要获取焦点时加上深蓝色边框，失去焦点时去掉边框的元素都加到数组中统一处理
-        var list = [
-            ".address",
-            ".passNum",
-            ".adrInput input.start",
-            ".adrInput input.end",
-            ".everypass>.el-select>.el-input>input"
-        ];
-        for (var item of list) {
-            var tar = document.querySelector(item);
-            tar.onfocus = function (e) {
-                this.style.outline = "none";
-                this.style.border = "2px solid #051039";
-            };
-            tar.onblur = function (e) {
-                this.style.border = "2px solid #ccc";
-            };
-        }
-        /*地址搜索按钮 */
-        var search = document.querySelectorAll(".adrInput>.el-col-3>.box");
-        for (var tar of search) {
-            /*获取焦点，展开下拉卡片 */
-            tar.onfocus = function () {
-                var id = "";
-                if (this.id == "b1") {
-                    id = "c1";
-                } else {
-                    id = "c2";
-                }
-                var card = document.querySelector(".adrInput #" + id);
-                this.style.outline = "none";
-                this.style.border = "2px solid #051039";
-                card.style.height = "300px";
-                card.style.overflow = "scroll";
-            };
-            /*失去焦点，合上下拉卡片 */
-
-            tar.onblur = function (e) {
-                // var id = "";
-                // if (this.id == "b1") {
-                //     id = "c1";
-                // } else {
-                //     id = "c2";
-                // }
-                this.style.border = "0px";
-                setTimeout(function () {
-                    //失去焦点收起卡片太快了，点击选择卡片内容会选不上，所以加个延时
-                    var card = document.querySelector(".adrInput #" + id);
-                    card.style.height = "0";
-                    card.style.overflow = "hidden";
-                }, 200);
-            };
-        }
-        /*下拉地址列表 */
-        var lis = document.querySelectorAll("#card1 li");
-        for (var li of lis) {
-            li.onclick = function () {
-                //console.log(this.id);
-                this.originplace = this.id;
-            };
-        }
-        var lis = document.querySelectorAll("#card2 li");
-        for (var li of lis) {
-            li.onclick = function () {
-                //console.log(this.id);
-                this.flInfo.destination = this.id;
-            };
-        }
     }
 };

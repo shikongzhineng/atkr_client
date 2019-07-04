@@ -59,12 +59,9 @@
   .adrInput input:hover {
     border: 2px solid #051039;
   }
-  /* .adrInput>.el-col-3>div{
+  .adrInput>.show-list>div{
     margin:6px 10px;
   }
-  .adrInput>.el-col-9{
-    position:relative;
-  } */
   .adrInput .delete,
   .adrInput .feiji {
     height: 40px;
@@ -98,10 +95,10 @@
   .adrInput .search {
     cursor: pointer;
   }
-  /* .adrInput>.el-col-3{
+  .adrInput>.show-list,.adrInput .city-list{
     position: relative;
   }
-  .adrInput>.el-col-3>.box{
+  .adrInput>.show-list>.box{
     width:44px;
     height:44px;
     margin:0;
@@ -109,24 +106,29 @@
     top:0;left:5px;
     cursor: pointer;
   }
-  .adrInput>.el-col-3>.box:hover{
+  .adrInput>.show-list>.box.active {
+    outline:none;
+    border:2px solid #051039; 
+  }
+  .adrInput>.show-list>.box:hover{
     border:2px solid #051039;
-  } */
+  }
   /*搜索城市 下拉卡卡片*/
   .adrInput .adrCard {
     background-color: #f2f2f2;
-    padding: 20px;
+    margin: 20px;
     color: #051039;
     box-sizing: border-box;
-  }
-  .adrInput #c1,
-  .adrInput #c2 {
     position: absolute;
     width: 100%;
     height: 0px;
     overflow: hidden;
     z-index: 999;
     transition: height 0.2s linear;
+  }
+  .adrInput .adrCard.active {
+    height:300px;
+    overflow:scroll;
   }
   
   .adrInput .adrCard > span {
@@ -151,6 +153,10 @@
   .date {
     margin-bottom: 30px;
   }
+  data .el-input {
+    margin-left: 2rem;
+    width: 70% !important;
+}
   .date > div {
     position: relative;
   }
@@ -286,4 +292,8 @@
   }
   .btns > .btn2 > a {
     background-color: #ed0000;
+  }
+  .address:focus,.passNum:focus,.adrInput input.start:focus,.adrInput input.end:focus,.everypass>.el-select>.el-input>input:focus {
+    outline:none;
+    border:2px solid #051039;
   }
