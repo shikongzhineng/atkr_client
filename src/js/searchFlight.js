@@ -28,24 +28,14 @@ export default {
                 "少年(12-17岁)",
                 "儿童(2-11岁)"
             ],
-            passvalue: [
-                "成人(18-64岁)",
-                "成人(18-64岁)",
-                "成人(18-64岁)",
-                "成人(18-64岁)",
-                "成人(18-64岁)",
-                "成人(18-64岁)",
-                "成人(18-64岁)",
-                "成人(18-64岁)",
-                "成人(18-64岁)"
-            ],
+            passvalue:["成人(18-64岁)"],
             selectedStyle: {
                 color: '#fff'
             },
             psgBgStyle: {
                 left: 0
             },
-            psgBgwidth:0
+            psgBgWidth:0
         };
     },
     methods: {
@@ -90,7 +80,7 @@ export default {
             });
         },
         delAddr(key) {
-            this[key] = '';
+            this.flInfo[key] = '';
         },
         //获取当前日期
         getNow() {
@@ -104,10 +94,10 @@ export default {
         },
         /*选择乘客人数 */
         chooseNum(e,num) {
-            console.dir(e.target.getAttribute);
+            console.dir(e.target.offsetWidth,num);
             this.flInfo.passnum = num;
-            this.psgBgwidth=e.target.style.width;
-            var left=(num-1)*this.psgBgwidth+ "px";
+            this.psgBgWidth=e.target.offsetWidth;
+            var left=this.psgBgWidth*(num-1)+"px";
             console.log(left);
             this.psgBgStyle = {left};
         },
@@ -118,13 +108,13 @@ export default {
     },
     mounted() {
         //首页热门航线传过来的地址给起始地和目的地
-        // console.log(this.$route.params);
-        this.originplace = this.$route.params.start;
-        this.destination = this.$route.params.end;
+        console.log(this.$route.params);
+        this.flInfo.originplace = this.$route.params.start;
+        this.flInfo.destination = this.$route.params.end;
 
         //给去程和回程日期设置一个初始值：即当前日期
-        this.startdate = this.getNow();
-        this.backdate = this.getNow();
+        this.flInfo.startdate = this.getNow();
+        this.flInfo.backdate = this.getNow();
 
 
         //需要获取焦点时加上深蓝色边框，失去焦点时去掉边框的元素都加到数组中统一处理

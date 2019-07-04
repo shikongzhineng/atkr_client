@@ -122,13 +122,13 @@
           >{{item}}</div>
         </div>
         <div class="passage">
-          <div class="everypass" v-for="i of flInfo.passnum" :key="i">
-            <span class="small">第{{number[i-1]}}名乘客</span>
-            <el-select v-model="passvalue[i-1]">
+          <div class="everypass" v-for="(val,index) of flInfo.passnum" :key="index">
+            <span class="small">第{{number[val-1]}}名乘客</span>
+            <el-select v-model="passvalue[val-1]">
               <el-option v-for="item of options" :key="item" :label="item" :value="item"></el-option>
             </el-select>
             <div class="question" v-if="i==1">
-              <div id="questionimg">
+              <div class="questionimg">
                 <img src="img/searchFlight/questionfill.png" alt />
               </div>
               <div class="tipscard">

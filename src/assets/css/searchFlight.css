@@ -191,9 +191,6 @@
     text-align: center;
     cursor: pointer;
   }
-  .passNum > .num:first-child {
-    color: #fff;
-  }
   .passNum > .num:not(:last-child) {
     border-right: 2px solid #ccc;
   }
@@ -219,8 +216,11 @@
     position: relative;
     display: flex;
   }
-  .question > #questionimg {
+  .question > .questionimg {
     cursor: pointer;
+  }
+  .question > .questionimg:hover + .tipscard {
+    display: block;
   }
   .everypass {
     margin: 30px 0;
@@ -228,6 +228,11 @@
     flex-wrap: nowrap;
     align-items: center;
   }
+  .everypass > .el-select {
+    margin-left: 120px;
+    margin-right: 60px;
+    width: 20%;
+}
   .everypass .tipscard {
     display: none;
   }
