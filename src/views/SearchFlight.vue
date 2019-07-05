@@ -159,7 +159,7 @@
           <a href="javascript:;" @click="$router.push('index')">回到首页</a>
         </div>
         <div class="btn2">
-          <a href="javascript:;" @click="search">搜索航班</a>
+          <a href="javascript:;" @click="scFl">搜索航班</a>
         </div>
       </div>
     </div>

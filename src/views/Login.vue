@@ -119,7 +119,7 @@
         }
       },
       reg(){
-        this.$router.push({path:'/registe'});
+        this.$router.push({path:'/register'});
       }
     }
   }
@@ -153,14 +153,14 @@ body{
 }
 .yhm{
   display: inline-block;
-  background: url("../assets/icon-main.png") no-repeat;
+  background: url("../assets/img/icon-main.png") no-repeat;
   width: 14px;
   height: 14px;
   top:19px;left: 15px;
 }
 .mm{
   display: inline-block;
-  background: url("../assets/icon-main.png") no-repeat;
+  background: url("../assets/img/icon-main.png") no-repeat;
   width:16px;
   height: 16px;
   background-position:-20px 0;
@@ -168,14 +168,14 @@ body{
 }
 .icon-left{
   display: inline-block;
-  background: url("../assets/icon-main.png") no-repeat;
+  background: url("../assets/img/icon-main.png") no-repeat;
   width:16px;
   height:16px;
   background-position: -90px 0;
 }
 .icon-left:focus{
   display: inline-block;
-  background: url("../assets/icon-main.png") no-repeat;
+  background: url("../assets/img/icon-main.png") no-repeat;
   width:16px;
   height:16px;
   background-position: -90px -20px;

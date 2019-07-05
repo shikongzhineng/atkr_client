@@ -3,7 +3,7 @@ export default {
         return {
             flInfo: {
                 ticket: 1, //单程--1  往返--2
-                originplace: "", //出发地点
+                originplace: '西安', //出发地点
                 destination: "", //目的地
                 startdate: "", //去程日期，格式："yyyy-mm-dd"
                 backdate: "", //回程日期
@@ -35,24 +35,25 @@ export default {
             psgBgStyle: {
                 left: 0
             },
-            adrCard:{
-                active:false
+            adrCard: {
+                active: false
             },
-            adrState:0
+            adrState: 0
         };
     },
     methods: {
         /*搜索航班 */
-        search() {
-            if (this.flInfo.originplace) {
+        scFl() {
+            console.log(this.flInfo);
+            if (!this.flInfo.originplace) {
                 alert("请输入起始地址");
                 return;
             }
-            if (this.flInfo.destination) {
+            if (!this.flInfo.destination) {
                 alert("请输入目的地");
                 return;
             }
-            if (this.flInfo.startdate) {
+            if (!this.flInfo.startdate) {
                 alert("请输入去程日期");
                 return;
             }
@@ -78,22 +79,23 @@ export default {
                 this.flInfo.backdate = "";
             }
             this.$router.push({
-                path: "/flightlist",
+                name: "flightlist",
                 params: this.flInfo
             });
         },
         selCity(addr, key) {
             this.flInfo[key] = addr;
+            console.log(this.flInfo[key]);
         },
         delAddr(key) {
             this.flInfo[key] = '';
         },
         showCityList(n) {
-            this.adrState=n
-            this.adrCard.active=true;
+            this.adrState = n
+            this.adrCard.active = true;
         },
-        hiddenCityList(){
-            this.adrCard.active=false;
+        hiddenCityList() {
+            this.adrCard.active = false;
         },
         //获取当前日期
         getNow() {
@@ -125,10 +127,15 @@ export default {
         }
     },
     mounted() {
+        console.log(this.flInfo);
         //首页热门航线传过来的地址给起始地和目的地
-        console.log(this.$route.params);
-        this.flInfo.originplace = this.$route.params.start;
-        this.flInfo.destination = this.$route.params.end;
+        // console.log(this.$route.params);
+        if (this.$route.params.start) {
+            this.flInfo.originplace = this.$route.params.start;
+        }
+        if (this.$route.params.end) {
+            this.flInfo.destination = this.$route.params.end;
+        }
 
         //给去程和回程日期设置一个初始值：即当前日期
         this.flInfo.startdate = this.getNow();

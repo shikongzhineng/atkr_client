@@ -3,7 +3,14 @@ import Router from 'vue-router'
 
 import Home from './views/Home.vue'
 import Index from './views/Index.vue'
+import Login from './views/Login.vue'
+import Register from './views/Register.vue'
 import SearchFlight from './views/SearchFlight.vue'
+
+const FlightList=()=>import('./views/FlightList.vue')
+const TravelDetail=()=>import('./views/TravelDetail.vue')
+const Reserve=()=>import('./views/Reserve.vue')
+
 
 Vue.use(Router)
 
@@ -11,12 +18,11 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
       component: Home,
       children:[
         {
           path:'',
-          name:'index',
+          name:'home',
           component:Index
         },
         {
@@ -30,9 +36,30 @@ export default new Router({
           component:SearchFlight
         },
         {
-          path:'',
+          path:'flightlist',
+          name:'flightlist',
+          component:FlightList
         },
-        
+        {
+          path:'traveldetail',
+          name:'traveldetail',
+          component: TravelDetail
+        },
+        {
+          path:'reserve',
+          name:'reserve',
+          component:Reserve
+        },
+        {
+          path:'login',
+          name:'login',
+          component:Login
+        },
+        {
+          path:'register',
+          name:'register',
+          component:Register
+        }
       ]
     },
     // {

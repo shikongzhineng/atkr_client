@@ -5,7 +5,7 @@
         <tr>
           <td style="width:50%;">
             <img
-              src="../../assets/traveldigest/plane.png"
+              src="../assets/img/traveldigest/plane.png"
               style="width:50px;margin-right:1rem;"
               alt
             />

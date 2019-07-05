@@ -1,0 +1,221 @@
+.traveldigest {
+    margin-bottom: 5rem;
+  }
+  .breadCrumb {
+    border-top: 1px solid #e8e5e5;
+    background-image: linear-gradient(to right, #051039 60%, #fff 60%);
+    border-bottom: 1px solid #e8e5e5;
+    margin-bottom: 2rem;
+  }
+  .breadnav {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+  }
+  .breadUl {
+    list-style: none;
+    padding: 0 8rem;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+  }
+  .breadUl li {
+    float: left;
+    font-weight: 600;
+    padding: 0 5rem;
+    color: #767676;
+    padding: 1rem 0;
+  }
+  .first {
+    background-color: #051039;
+    color: #fff !important;
+  }
+  .first a {
+    color: #fff;
+  }
+  .current {
+    color: #fff !important;
+    background-color: #ed0000;
+    position: relative;
+    padding: 1rem 8rem 1rem 8rem !important;
+  }
+  .current::before,
+  .current::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+  }
+  .current::before {
+    border-right: 3.5rem solid transparent;
+    border-top: 3.5rem solid #051039;
+    left: 0;
+  }
+  .current::after {
+    border-left: 3.5rem solid transparent;
+    border-bottom: 3.5rem solid #fff;
+    right: 0;
+  }
+  /*  */
+  .login {
+    width: 70%;
+    margin: 0 auto;
+    outline: none;
+    box-shadow: none;
+  }
+  .login .log {
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    background-color: #051035;
+    border: 4px solid #051035;
+  }
+  .login .isLog {
+    border: 4px solid #051035;
+    text-align: center;
+  }
+  .login .isLog p {
+    color: #051035;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+    font-weight: lighter;
+    text-align: left;
+  }
+  .login .isLog .btn {
+    background-color: #051035;
+    color: #fff;
+    font-weight: bolder;
+    padding: 1.2rem 3rem;
+    border-radius: 0;
+    box-shadow: 0;
+    margin-bottom: 5rem;
+    font-size: 1.2rem;
+  }
+  .login .isLog .btn:hover {
+    background-color: #14438b;
+  }
+  .personalData {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .personal {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  table {
+    margin-top: 2rem;
+    width: 100%;
+  }
+  table tr td:first-child {
+    text-align: right;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+    color: #051035;
+    font-weight: bolder;
+  }
+  table tr td:first-child span {
+    color: red;
+  }
+  .personalDetail {
+    border: 2px solid #ccc;
+    /* width: 70%; */
+    margin: 0 auto;
+  }
+  #name,
+  #idCard,
+  #phone,
+  #named,
+  #phoned {
+    width: 60%;
+    height: 4rem;
+    font-size: 1.5rem;
+    outline: none;
+    margin-bottom: 1rem;
+  }
+  #name:hover,
+  #idCard:hover,
+  #phone:hover,
+  #phoned:hover,
+  #named:hover {
+    border-color: #051035;
+    box-shadow: none;
+  }
+  #name:focus,
+  #idCard:focus,
+  #phone:focus,
+  #phoned:focus,
+  #named:focus {
+    outline: #051035;
+  }
+  .personalDetail > span {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    color: #051035;
+    display: block;
+    padding: 2rem 1rem;
+  }
+  
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 5rem;
+    margin-bottom: 3rem;
+  }
+  .historyNext {
+    background-color: #dc0000;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .historyNext:hover {
+    background-color: #af0000;
+    color: #fff;
+  }
+  .historyPrev {
+    background-color: #051039;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .historyPrev:hover {
+    background-color: #0a1f6b;
+    color: #fff;
+  }
+  .warning {
+    color: #dc0000;
+    font-size: 1.2rem;
+    margin-left: 1.5rem;
+    display: none;
+  }
+  /*底部按钮*/
+  .btns {
+    margin: 50px 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btns a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 24px;
+  }
+  .btns a:hover {
+    text-decoration: none;
+  }
+  .btns > .btn1 > a {
+    background-color: #051039;
+  }
+  .btns > .btn1 > a:hover {
+    background-color: #264483;
+  }
+  .btns > .btn2 > a:hover {
+    background-color: #cc0404;
+  }
+  .btns > .btn2 > a {
+    background-color: #ed0000;
+  }

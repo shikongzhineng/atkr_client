@@ -1,0 +1,61 @@
+.leftTopImg {
+    width: 45px;
+    margin: 1.5rem 1.3rem;
+  }
+  .digesttext {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  /* 左边框线 */
+  .borderRight {
+    border-right: 0.1rem solid #bdbdbd;
+  }
+  /* 摘要详细信息 */
+  .digestlist {
+    background-color: #dff2fd;
+    color: #051039;
+    box-shadow: 0 0.5rem 1rem 0 #e8e5e5;
+    cursor: pointer;
+    width: 100%;
+    position: static;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  .listGoText,
+  .listBackText {
+    padding: 0 2rem 0 4rem;
+    max-width: 18.75rem;
+  }
+  .statusText {
+    background-color: #0062e6;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+  .destination {
+    color: #dc0000;
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+  .timing > span {
+    font-weight: bolder;
+    margin-bottom: 10px;
+  }
+  .peoAndTime {
+    padding: 0 2rem;
+  }
+  .peoAndTime div {
+    margin: 0.5rem 0;
+  }
+  .title {
+    vertical-align: middle;
+    padding-right: 4rem;
+    color: #051039;
+  }
+  .title > div {
+    font-size: 1.3rem;
+    font-weight: bolder;
+  }

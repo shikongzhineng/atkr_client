@@ -1,0 +1,168 @@
+.breadCrumb{
+  border-top: 1px solid #e8e5e5;
+  background-image:linear-gradient(to right,#051039 50%,#fff 50%);
+  border-bottom: 1px solid #e8e5e5;
+  margin-bottom: 2rem;
+}
+.breadnav{
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+.breadUl{
+  list-style: none;
+  padding:0 8rem;
+  display: flex;
+  justify-content: space-around;
+  margin:0;
+}
+.breadUl li{
+  float: left;
+  font-weight: 600;
+  padding:0 5rem;
+  color:#767676;
+  padding:1rem 0;
+}
+.first{
+  background-color:#051039;
+  color: #fff !important;
+}
+.first a{
+  color:#fff;
+}
+.current{
+  color:#fff !important;
+  background-color: #ed0000;
+  position: relative;
+  padding:1rem 8rem 1rem 8rem !important;
+}
+.current::before,.current::after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0;
+}
+.current::before{
+  border-right: 3.5rem solid transparent;
+  border-top:3.5rem solid #051039;
+  left: 0;
+}
+.current::after{
+  border-left:3.5rem solid transparent;
+  border-bottom: 3.5rem solid #fff;
+  right:0;
+}
+
+/*  */
+#headerInfo{
+  padding-top:2rem;
+  background-color: #dff2fd;
+}
+.headerNav p{
+  margin-left:8rem;
+  margin-bottom:0;
+}
+.headerNav>p:first-child{
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: bolder;
+}
+.headerNav>p:nth-child(2){
+  color:#dc0000;
+  text-transform: none;
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+.travelList .col-8 span{
+	color: #051039;
+	font-weight: bolder;
+}
+.travelList{
+	margin-left: 8rem;
+	/* margin-top: 10rem; */
+	width: 90%;
+}
+.col-4>span{
+	margin-left: 1rem;
+}
+.travelList>.row{
+	border-top:1px solid #555;
+}
+.travelList>.row:last-child{
+	border-bottom:1px solid #555;
+}
+.travelList>.row>.col-8,.travelList>.row>.col-4{
+	padding: 2rem 0;
+}
+.travelList>.row>.col-4{
+	text-align: center;
+}
+.spanNav{
+	line-height: 40px;
+}
+.isTrue{
+	width: 2rem;
+}
+.travelList>.row>.col-8>.row>.col-4>.titleImg:first-child{
+	height: 40px;
+}
+.titleImg{
+	width:40px;
+}
+.traveldigest{
+	width: 100%;
+}
+.bottom{
+  display: flex;
+  justify-content: space-between;
+  padding:3rem 5rem;
+  margin-bottom: 3rem;
+}
+.historyNext{
+  background-color: #dc0000;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.historyNext:hover{
+  background-color: #af0000;
+  color:#fff;
+}
+.historyPrev{
+  background-color: #051039;
+  color:#fff;
+  font-size: 0.9rem;
+}
+.historyPrev:hover{
+  background-color: #0a1f6b;
+  color:#fff;
+}
+/*底部按钮*/
+.btns{
+  margin:50px 0 50px 0;
+  display:flex;
+  justify-content:space-between;
+}
+.btns a{
+  color:#fff;
+  font-size:1rem;
+  font-weight:bold;
+  padding:14px 24px;
+}
+.btns a:hover{
+  text-decoration:none;
+}
+.btns>.btn1>a{
+  background-color:#051039;
+}
+.btns>.btn1>a:hover{
+  background-color:#264483;
+}
+.btns>.btn2>a:hover{
+  background-color:#cc0404;
+}
+.btns>.btn2>a{
+  background-color:#ed0000;
+}

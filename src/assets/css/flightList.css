@@ -1,0 +1,125 @@
+.headerInfo {
+    padding-top: 2rem;
+    background-color: #afe1ff;
+  }
+  .headerNav p {
+    margin-left: 8rem;
+  }
+  .headerNav > p:first-child {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: bolder;
+  }
+  .headerNav > p:nth-child(2) {
+    color: #dc0000;
+    text-transform: none;
+    font-size: 1.5rem;
+    padding-bottom: 2rem;
+    font-weight: bolder;
+  }
+  .headerList {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+  .headerUl {
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+    display: flex;
+  }
+  .headerUl li {
+    float: left;
+    background-color: #c8eaff;
+    text-align: center;
+    cursor: pointer;
+    width: 250px;
+    height: 100px;
+  }
+  .headerUl li div:first-child {
+    font-weight: bolder;
+    margin-top: 8%;
+  }
+  .headerUl li div:nth-child(2) {
+    font-size: 1.1rem;
+  }
+  .headerUl li div:last-child {
+    font-size: 1.2rem;
+    color: #378302;
+    font-weight: bolder;
+  }
+  .show {
+    background-color: #fff !important;
+    height: 130px;
+  }
+  .tipstitle {
+    font-size: 10px;
+    color: #767676;
+    padding: 1rem 0 1rem 5rem;
+  }
+  .tipstitle p:last-child {
+    font-size: 1rem;
+    color: #378302;
+    font-weight: bolder;
+  }
+  .tipstitle p:last-child span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #378302;
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 5rem;
+  }
+  .historyNext {
+    background-color: #dc0000;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .historyNext:hover {
+    background-color: #af0000;
+    color: #fff;
+  }
+  .historyPrev {
+    background-color: #051039;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .historyPrev:hover {
+    background-color: #0a1f6b;
+    color: #fff;
+  }
+  .listitem,
+  .backlistitem {
+    margin-bottom: 4rem;
+  }
+  /*底部按钮*/
+  .btns {
+    margin: 50px 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .btns a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 14px 24px;
+  }
+  .btns a:hover {
+    text-decoration: none;
+  }
+  .btns > .btn1 > a {
+    background-color: #051039;
+  }
+  .btns > .btn1 > a:hover {
+    background-color: #264483;
+  }
+  .btns > .btn2 > a:hover {
+    background-color: #cc0404;
+  }
+  .btns > .btn2 > a {
+    background-color: #ed0000;
+  }
