@@ -20,7 +20,7 @@ export default {
                 phone:''
             },
             valiClass:{
-                uname:'',
+                uname:{failed:false},
                 idCard:'',
                 phone:'',
             }
@@ -39,6 +39,15 @@ export default {
             this.$router.push({ name: "traveldetail", params });
         },
         next() {
+            if (this.isLogin !== "true") {
+                if (confirm("请先登录！")) {
+                    this.$router.push("/login");
+                    return;
+                } else {
+                    return;
+                }
+            }
+
             for (let elem of userList) {
                 if (!elem.name) {
                     alert("信息不完整");
@@ -73,15 +82,6 @@ export default {
                     return;
                 }
             }            
-
-            if (localStorage.getItem("isLogin") !== "true") {
-                if (confirm("请先登录！")) {
-                    this.$router.push("/login");
-                    return;
-                } else {
-                    return;
-                }
-            }
 
             if (confirm("确定提交订单吗？")) {
                 for (var i = 0; i < this.flInfo.passnum; i++) {
@@ -127,7 +127,7 @@ export default {
                     uname:'',
                     idCard:'',
                     phone:'',
-                    gender:0
+                    gender:1
                 };
             }
         }

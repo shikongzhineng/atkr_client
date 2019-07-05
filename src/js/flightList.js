@@ -120,20 +120,22 @@ export default {
                 taddr: this.flInfo.destination,
                 date
             };
-            console.log(obj);
+            // console.log(obj);
             this.axios.get(url, { params: obj }).then(result => {
+                let listitems=[]
                 if (result.data.code == 1) {
                     var res = result.data.data;
-                    console.log(res);
+                    // console.log(res);
                     for (var i = 0; i < res.length; i++) {
                         var { ystime, yetime, sap, tap, ytime, scprice, emprice, fid } = res[i];
                         let obj = { ystime, yetime, sap, tap, ytime, vprice: scprice, price: emprice, fid };
-                        this.listitems.push(obj);
+                        listitems.push(obj);
                     }
                 } else {
                     var obj = { ystime: "", yetime: "", sap: "", tap: "", ytime: "", price: "", vprice: "", fid: "" };
-                    this.listitems.push(obj);
+                    listitems.push(obj);
                 }
+                this.listitems=listitems;
                 // console.log(this.listitems)
             });
         },

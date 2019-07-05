@@ -18,7 +18,7 @@
       <traveldigest :params="{flInfo,flParams1,flParams2}"></traveldigest>
     </div>
     <!-- 是否登录 -->
-    <div class="login" v-show="islogin=='false'">
+    <div class="login" v-show="isLogin=='false'">
       <div class="log">登录</div>
       <div class="isLog">
         <p>您是蓝天飞行会员或拥有法航账户？</p>
@@ -28,15 +28,15 @@
     <!-- 个人信息 -->
     <div class="personalData">
       <div class="personal">个人信息</div>
-      <div class="personalDetail" v-for="(item,i) of list" :key="i">
+      <div class="personalDetail" v-for="(item,i) of userList" :key="i">
         <table style="width:100%;">
           <tr>
             <td>
               姓名
-              <span>*</span>
+              <span :class="valiClass[i].uname">*</span>
             </td>
             <td>
-              <input id="name" type="text" />
+              <input id="name" v-model="item.uname" type="text" />
               <span class="warning">请输入姓名！</span>
             </td>
           </tr>
@@ -47,9 +47,9 @@
             </td>
             <td>
               <div>
-                <el-radio-group v-model="radio1">
-                  <el-radio-button label="男">男</el-radio-button>
-                  <el-radio-button label="女">女</el-radio-button>
+                <el-radio-group v-model="item.gender">
+                  <el-radio-button name="sex" label="1">男</el-radio-button>
+                  <el-radio-button name="sex" label="0">女</el-radio-button>
                 </el-radio-group>
               </div>
             </td>
@@ -60,7 +60,7 @@
               <span>*</span>
             </td>
             <td>
-              <input id="idCard" type="text" />
+              <input id="idCard" v-model="item.idCard" type="text" />
               <span class="warning">请输入身份证号！</span>
             </td>
           </tr>
@@ -70,31 +70,12 @@
               <span>*</span>
             </td>
             <td>
-              <input id="phone" type="text" />
+              <input id="phone" v-model="item.phone" type="text" />
               <span class="warning">请输入手机号！</span>
             </td>
           </tr>
         </table>
       </div>
-      <!-- <div class="personal">联系人</div>
-            <div class="personalDetail">
-                <table>
-                    <tr>
-                        <td>姓名<span>* </span></td>
-                        <td>
-                            <input id="named" type="text">
-                            <span class="warning">请输入联系人姓名！</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>手机<span>*</span></td>
-                        <td>
-                            <input id="phoned" type="text">
-                            <span class="warning">请输入联系人手机号！</span>
-                        </td>
-                    </tr>
-                </table>
-      </div>-->
       <div class="personal">特定手续</div>
       <div class="personalDetail">
         <span>据国家有关部门出于监管需要，要求您必须提供个人信息。您在预订机票后，可前往我们网站“我的预订”页面填写该信息。</span>
