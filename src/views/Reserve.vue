@@ -28,16 +28,21 @@
     <!-- 个人信息 -->
     <div class="personalData">
       <div class="personal">个人信息</div>
-      <div class="personalDetail" v-for="(item,i) of userList" :key="i">
+      <div class="personalDetail" v-for="(item,i) of inputBoxsList" :key="i">
         <table style="width:100%;">
           <tr>
             <td>
               姓名
-              <span :class="valiClass[i].uname">*</span>
+              <span>*</span>
             </td>
             <td>
-              <input id="name" v-model="item.uname" type="text" />
-              <span class="warning">请输入姓名！</span>
+              <input
+                class="psinfo"
+                v-model="userList[i].uname"
+                @change="valiFn(userList[i],item,['uname'])"
+                type="text"
+              />
+              <span class="vali_msg" :class="item.uname.valiClass">{{item.uname.valiMsg}}</span>
             </td>
           </tr>
           <tr class="sex">
@@ -47,7 +52,7 @@
             </td>
             <td>
               <div>
-                <el-radio-group v-model="item.gender">
+                <el-radio-group v-model="userList[i].gender">
                   <el-radio-button name="sex" label="1">男</el-radio-button>
                   <el-radio-button name="sex" label="0">女</el-radio-button>
                 </el-radio-group>
@@ -60,18 +65,34 @@
               <span>*</span>
             </td>
             <td>
-              <input id="idCard" v-model="item.idCard" type="text" />
-              <span class="warning">请输入身份证号！</span>
+              <input
+                class="psinfo"
+                v-model="userList[i].idCard"
+                @change="valiFn(userList[i],item,['idCard'])"
+                type="text"
+              />
+              <span class="vali_msg" 
+                :class="valiCurrent.value!==valiOld.value?item.idCard.valiClass:item.idCard.valiClass"
+              >
+                {{valiCurrent.value!==valiOld.value?item.idCard.valiMsg:item.idCard.valiMsg}}
+              </span>
             </td>
           </tr>
           <tr>
             <td>
-              手机
+              手机号
               <span>*</span>
             </td>
             <td>
-              <input id="phone" v-model="item.phone" type="text" />
-              <span class="warning">请输入手机号！</span>
+              <input
+                class="psinfo"
+                v-model="userList[i].phone"
+                @change="valiFn(userList[i],item,['phone'])"
+                type="text"
+              />
+              <span class="vali_msg" :class="item.phone.valiClass">
+                {{item.phone.valiMsg}}
+                </span>
             </td>
           </tr>
         </table>

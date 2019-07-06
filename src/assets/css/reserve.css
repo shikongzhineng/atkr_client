@@ -128,30 +128,21 @@
     /* width: 70%; */
     margin: 0 auto;
   }
-  #name,
-  #idCard,
-  #phone,
-  #named,
-  #phoned {
+  .psinfo {
     width: 60%;
     height: 4rem;
     font-size: 1.5rem;
     outline: none;
     margin-bottom: 1rem;
   }
-  #name:hover,
-  #idCard:hover,
-  #phone:hover,
-  #phoned:hover,
-  #named:hover {
+  .psinfo.failed {
+    border-color: #af0000;
+  }
+  .psinfo:hover {
     border-color: #051035;
     box-shadow: none;
   }
-  #name:focus,
-  #idCard:focus,
-  #phone:focus,
-  #phoned:focus,
-  #named:focus {
+  .psinfo:focus {
     outline: #051035;
   }
   .personalDetail > span {
@@ -186,11 +177,15 @@
     background-color: #0a1f6b;
     color: #fff;
   }
-  .warning {
-    color: #dc0000;
+  .vali_msg {
     font-size: 1.2rem;
     margin-left: 1.5rem;
-    display: none;
+    height: 2rem;
+    visibility: hidden;
+  }
+  .vali_msg.failed {
+    color: #dc0000;
+    visibility: visible;
   }
   /*底部按钮*/
   .btns {

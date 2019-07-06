@@ -6,6 +6,7 @@ import Index from './views/Index.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
 import SearchFlight from './views/SearchFlight.vue'
+import Pinfomation from './views/Pinformation.vue'
 
 const FlightList=()=>import('./views/FlightList.vue')
 const TravelDetail=()=>import('./views/TravelDetail.vue')
@@ -49,6 +50,11 @@ export default new Router({
           path:'reserve',
           name:'reserve',
           component:Reserve
+        },
+        {
+          path:'pinformation',
+          name:'pinformation',
+          component:Pinfomation
         },
         {
           path:'login',

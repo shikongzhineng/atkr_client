@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="digesttext">
-      <img class="leftTopImg" src="../assets/traveldigest/zhaiyao.png" alt>
+      <img class="leftTopImg" src="../assets/img/traveldigest/zhaiyao.png" alt>
       订单信息
     </div>
     <div v-for="(elm,key) of list" :key="key" class="digestlist">

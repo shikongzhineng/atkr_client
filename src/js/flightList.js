@@ -75,11 +75,11 @@ export default {
         },
         next() {
             if (this.flParams1.ystime == "") {
-                alert("请选择去程航班");
+                this.$alert("请选择去程航班");
                 return;
             }
             if (this.flInfo.ticket == 2 && this.flParams2.ystime == "") {
-                alert("请选择回程航班");
+                this.$alert("请选择回程航班");
                 return;
             }
             let params = {

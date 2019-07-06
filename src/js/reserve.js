@@ -4,29 +4,59 @@ export default {
     components: { traveldigest },
     data() {
         return {
-            flInfo:Object,
-            flParams1:Object,
-            flParams2:Object,
-            isLogin: 'false',
+            flInfo: Object,
+            flParams1: Object,
+            flParams2: Object,
+            isLogin: String,
             userList: [],
-            valiReg:{
-                uname:'/[a-zA-Z]\w{3,32}/',
+            inputBoxsList: [],
+            valiReg: {
+                uname: /^[a-zA-Z]\w{1,32}$/,
                 idCard: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
-                phone:/^1[3456789]\d{9}$/
+                phone: /^1[3456789]\d{9}$/
             },
-            valiMsg:{
-                uname:'',
-                phone:'',
-                phone:''
+            valiMsg: {
+                uname: { failed: '用户名格式不正确', success: '' },
+                idCard: { failed: '身份证号格式不正确', success: '' },
+                phone: { failed: '请输入正确的手机号', success: '' },
             },
-            valiClass:{
-                uname:{failed:false},
-                idCard:'',
-                phone:'',
-            }
+            valiClass: {
+                uname: { failed: 'failed', success: 'success' },
+                idCard: { failed: 'failed', success: 'success' },
+                phone: { failed: 'failed', success: 'success' },
+            },
+            valiCurrent: { value: '' },
+            valiOld: { value: '' }
         };
     },
     methods: {
+        valiFn(user, inputBoxs, keyList) {
+            let bool = true;
+            for (let key of keyList) {
+                this.valiOld.value = this.valiCurrent.value;
+                if (!user[key]) {
+                    inputBoxs[key].valiMsg = inputBoxs[key].title + '不能为空';
+                    inputBoxs[key].valiClass = this.valiClass[key].failed;
+                    inputBoxs[key].valiState = 0;
+                    this.$message(inputBoxs[key].valiMsg);
+                    bool = false;
+                }
+                if (this.valiReg[key].test(user[key]) === false) {
+                    inputBoxs[key].valiMsg = this.valiMsg[key].failed;
+                    inputBoxs[key].valiClass = this.valiClass[key].failed;
+                    inputBoxs[key].valiState = 0;
+                    this.$message(inputBoxs[key].valiMsg);
+                    bool = false;
+                } else {
+                    inputBoxs[key].valiMsg = this.valiMsg[key].success;
+                    inputBoxs[key].valiClass = this.valiClass[key].success;
+                    inputBoxs[key].valiState = 1;
+                }
+                this.valiCurrent.value = user[key];
+                // console.log(inputBoxs[key],'\n',user[key]);
+            }
+            return bool;
+        },
         tologin() {
             this.$router.push("/login");
         },
@@ -40,72 +70,54 @@ export default {
         },
         next() {
             if (this.isLogin !== "true") {
-                if (confirm("请先登录！")) {
-                    this.$router.push("/login");
-                    return;
-                } else {
-                    return;
-                }
+                this.$confirm('请先登录！', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    var s={val:3};
+                    var t1=setInterval(()=>{
+                        s.val--;
+                    },1000);
+                    var t=setTimeout(()=>{
+                        this.$router.push({name:'login'});
+                        clearTimeout(t);
+                        clearInterval(t1);
+                    },3000)
+                    this.$message({
+                        type: 'success',
+                        message: s.val+'秒后前往登录页面',
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取登录'
+                    });
+                });
+                return;
             }
-
-            for (let elem of userList) {
-                if (!elem.name) {
-                    alert("信息不完整");
-                    name.nextElementSibling.style.display = "block";
-                    name.style.borderColor = "red";
-                    return;
-                }
-                if (!elem.idCard) {
-                    alert("信息不完整");
-                    idCard.nextElementSibling.style.display = "block";
-                    idCard.style.borderColor = "red";
-                    return;
-                }
-                if (valiReg.idCard.test(elem.idCard) === false) {
-                    alert("信息格式不正确");
-                    idCard.nextElementSibling.style.display = "block";
-                    idCard.style.borderColor = "red";
-                    idCard.nextElementSibling.innerHTML = "请输入合法的身份证号！";
-                    return;
-                }
-                if (!elem.phone) {
-                    alert("信息不完整");
-                    phone.nextElementSibling.style.display = "block";
-                    phone.style.borderColor = "red";
-                    return;
-                }
-                if (valiReg.phone.test(elem.phone) == false) {
-                    alert("信息格式不正确");
-                    phone.nextElementSibling.style.display = "block";
-                    phone.style.borderColor = "red";
-                    phone.nextElementSibling.innerHTML = "请输入正确的手机号！";
-                    return;
-                }
-            }            
-
+            // 表单验证
+            for (let elem of inputBoxsList) {
+                let bool = this.valiFn(this.userList[i], elem, elem.valiAccess);
+                if (!bool) { return };
+            }
+            // 提交订单
             if (confirm("确定提交订单吗？")) {
-                for (var i = 0; i < this.flInfo.passnum; i++) {
+                for (let elm of userList) {
                     //数据库添加订单
                     // var gender = this.radio1 == "男" ? 1 : 0;
                     var now = new Date().getTime();
                     var tkn = now + "001" + Math.floor(Math.random() * 0);
-                    this.axios
-                        .post(
-                            "/pltk/add",
-                            `name=${uname}&phone=${phone}&gender=${gender}&tkn=${tkn}&stime=${now}&price=${this.flParams1.chooseprice}&fid=${this.flParams1.fid}`
-                        )
-                        .then(result => {
-                            console.log(result);
-                        });
+                    let params = `id=${elm.idCard}name=${elm.uname}&phone=${elm.phone}&gender=${elm.gender}&tkn=${tkn}&stime=${now}&price=${this.flParams1.chooseprice}&fid=${this.flParams1.fid}`
+                    this.axios.post('/pltk/add', params).then(result => {
+                        console.log(result);
+                    });
                     if (this.ticket == 2) {
                         tkn = now + "002" + i;
-                        this.axios.post(
-                                "/pltk/add",
-                                `id=${id}&name=${uname}&phone=${phone}&gender=${gender}&tkn=${tkn}&stime=${now}&price=${this.flParams2.chooseprice}&fid=${this.flParams2.sfid}`
-                            )
-                            .then(result => {
-                                console.log(result);
-                            });
+                        let params = `id=${elm.idCard}&name=${elm.uname}&phone=${elm.phone}&gender=${elm.gender}&tkn=${tkn}&stime=${now}&price=${this.flParams2.chooseprice}&fid=${this.flParams2.fid}`
+                        this.axios.post("/pltk/add", params).then(result => {
+                            console.log(result);
+                        });
                     }
                 }
                 //console.log("提交成功");
@@ -115,20 +127,42 @@ export default {
                 }, 3000);
             }
         },
+        // data数据初始化，在生命周期钩子函数created中执行
         load() {
             this.isLogin = localStorage.getItem("isLogin");
-            //   console.log("islogin=" + this.islogin);
+            //   console.log(this.isLogin);
             //接收数据
             this.flInfo = this.$route.params.flInfo;
             this.flParams1 = this.$route.params.flParams1;
             this.flParams2 = this.$route.params.flParams2;
             for (var i = 0; i < this.flInfo.passnum; i++) {
                 this.userList[i] = {
-                    uname:'',
-                    idCard:'',
-                    phone:'',
-                    gender:1
+                    uname: '',
+                    idCard: '',
+                    phone: '',
+                    gender: 1,
                 };
+                this.inputBoxsList[i] = {
+                    uname: {
+                        title: '姓名',
+                        valiClass: '',
+                        valiMsg: '',
+                        valiState: -1
+                    },
+                    idCard: {
+                        title: '身份证号',
+                        valiClass: '',
+                        valiMsg: '',
+                        valiState: -1
+                    },
+                    phone: {
+                        title: '手机号',
+                        valiClass: '',
+                        valiMsg: '',
+                        valiState: -1
+                    },
+                    valiAccess: ['uname', 'idCard', 'phone']
+                }
             }
         }
     },

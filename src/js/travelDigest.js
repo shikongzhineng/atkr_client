@@ -11,7 +11,9 @@ export default {
     },
     watch: {
         params() {
-            this.flParams1.chooseprice = this.params.flParams1.chooseprice;
+            this.flInfo=this.params.flInfo;
+            this.flParams1= this.params.flParams1;
+            this.flParams2=this.params.flParams2;
         }
     },
     computed: {
